@@ -1,13 +1,10 @@
 // ========== js/script.js ==========
-
-// 1. ACORDEÓN FAQ
 document.addEventListener('DOMContentLoaded', function () {
+  // 1. ACORDEÓN FAQ
   const accordionItems = document.querySelectorAll('.accordion-item');
-
   accordionItems.forEach(item => {
     const header = item.querySelector('.accordion-header');
     header.addEventListener('click', function () {
-      // Cerrar otros (opcional para mantener solo uno abierto)
       accordionItems.forEach(other => {
         if (other !== item && other.classList.contains('active')) {
           other.classList.remove('active');
@@ -19,11 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 2. AÑO AUTOMÁTICO EN FOOTER
   const yearSpan = document.getElementById('current-year');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // 3. SCROLL SUAVE PARA NAVEGACIÓN (redundante con css scroll-behavior, pero para enlaces antiguos)
+  // 3. SCROLL SUAVE PARA NAVEGACIÓN (refuerzo)
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
@@ -31,14 +26,12 @@ document.addEventListener('DOMContentLoaded', function () {
       if (href && href.startsWith('#')) {
         e.preventDefault();
         const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 
-  // 4. PEQUEÑA ANIMACIÓN DE STICKY HEADER (cambio sutil al hacer scroll)
+  // 4. STICKY HEADER CON EFECTO SUTIL
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
@@ -50,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // 5. PREVENIR ENVÍO REAL DEL FORMULARIO (solo demostración)
+  // 5. FORMULARIO (solo demo)
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
