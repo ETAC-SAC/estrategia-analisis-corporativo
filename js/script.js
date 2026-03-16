@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const yearSpan = document.getElementById('current-year');
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // 3. SCROLL SUAVE PARA NAVEGACIÓN (refuerzo)
+  // 3. SCROLL SUAVE PARA NAVEGACIÓN
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
@@ -42,14 +42,4 @@ document.addEventListener('DOMContentLoaded', function () {
       header.style.backdropFilter = 'none';
     }
   });
-
-  // 5. FORMULARIO (solo demo)
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('Gracias por contactarnos. Pronto te responderemos (demo).');
-      this.reset();
-    });
-  }
 });

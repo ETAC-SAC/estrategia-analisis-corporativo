@@ -54,7 +54,7 @@ h2::after {
   margin-bottom: 0.5rem;
 }
 
-/* HEADER con logo mejor contrastado */
+/* HEADER */
 .site-header {
   position: sticky;
   top: 0;
@@ -100,10 +100,9 @@ h2::after {
   display: flex;
   justify-content: center;
   padding: 0.3rem 1.2rem;
-  border-radius: 60px;
 }
 .logo-img {
-  max-height: 80px;
+  max-height: 72px;
   width: auto;
   object-fit: contain;
 }
@@ -129,7 +128,7 @@ h2::after {
   background-color: #20b859;
 }
 
-/* botones */
+/* botones genéricos */
 .btn {
   display: inline-block;
   padding: 0.9rem 2.2rem;
@@ -163,9 +162,6 @@ h2::after {
   background-color: #fcf9f2;
   border-color: #163a47;
 }
-.btn-block {
-  width: 100%;
-}
 .btn-whatsapp-large {
   background-color: #f0f7f6;
   border: 1px solid #b1975a;
@@ -175,10 +171,10 @@ h2::after {
   justify-content: center;
   gap: 0.5rem;
   font-weight: 500;
-  padding: 1rem 1.8rem;
+  padding: 1rem 2rem;
   border-radius: 60px;
-  margin: 1rem 0;
   font-size: 1.2rem;
+  transition: 0.2s;
 }
 .btn-whatsapp-large:hover {
   background-color: #e8d9b9;
@@ -243,11 +239,55 @@ h2::after {
   border: 1px solid #f0f3f5;
 }
 
-/* SERVICES */
+/* SERVICES con flujo de trabajo */
 .services {
   background-color: #f0f7f6;
   padding: 5rem 0;
 }
+.process-flow {
+  background: #ffffff;
+  border-radius: 40px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  border: 1px solid #f0f3f5;
+}
+.process-flow h3 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #163a47;
+}
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+.step {
+  text-align: center;
+}
+.step-number {
+  width: 48px;
+  height: 48px;
+  background-color: #f5d788;
+  color: #163a47;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 auto 1rem;
+}
+.step h4 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #163a47;
+}
+.step p {
+  color: #4d6a73;
+  font-size: 0.95rem;
+}
+
 .service-featured {
   background: #ffffff;
   padding: 2.5rem;
@@ -291,18 +331,27 @@ h2::after {
   border-radius: 50%;
   margin-right: 8px;
 }
+
+/* Service Grid - Versión corregida para centrar tarjetas */
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .service-card {
   background: #ffffff;
   padding: 1.8rem;
   border-radius: 24px;
   transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid #f0f3f5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .service-card:hover {
   transform: translateY(-4px);
@@ -317,9 +366,10 @@ h2::after {
 .service-card p {
   color: #4d6a73;
   font-weight: 300;
+  flex-grow: 1;
 }
 
-/* FAQ acordeón */
+/* FAQ */
 .faq {
   padding: 5rem 0;
   background: #ffffff;
@@ -363,7 +413,7 @@ h2::after {
   border-radius: 12px;
 }
 .accordion-item.active .accordion-content {
-  max-height: 250px;
+  max-height: 300px;
   padding: 1rem 1.2rem;
   margin-bottom: 1rem;
 }
@@ -371,89 +421,158 @@ h2::after {
   color: #163a47;
 }
 
-/* CONTACTO mejorado: íconos legibles y mayor énfasis */
-.contact {
+/* CONTACTO */
+.contact-info-only {
   padding: 5rem 0;
   background: #f0f3f5;
 }
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
-.contact-form {
-  background: #ffffff;
-  padding: 2.2rem;
-  border-radius: 28px;
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.9rem 1.2rem;
-  margin-bottom: 1.2rem;
-  border: 1px solid #f0f3f5;
-  border-radius: 60px;
-  font-family: inherit;
-  background: #fcf9f2;
-  transition: 0.15s;
-}
-.contact-form textarea {
+.contact-block {
+  background: #fff;
   border-radius: 24px;
+  padding: 2rem;
+  border: 1px solid #e8eef0;
 }
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #b1975a;
-  background: #ffffff;
+.contact-block--location {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
-.contact-info {
-  background: #ffffff;
-  padding: 2.5rem 2.2rem;
-  border-radius: 28px;
+.contact-block--location .contact-block-label {
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
-.contact-info h3 {
-  margin-bottom: 2rem;
+.contact-block-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #b1975a;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
 }
-.contact-icon {
-  font-size: 1.6rem;
-  margin-right: 0.6rem;
-  vertical-align: middle;
+.phone-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.6rem 0;
 }
-.contact-location {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  background: #f0f7f6;
-  padding: 1rem;
-  border-radius: 60px;
-  border: 1px solid #e8d9b9;
+.phone-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f5d788;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.contact-phones {
-  margin: 2rem 0;
-}
-.phone-big {
-  font-size: 2rem;
-  font-weight: 400;
+.phone-text {
+  font-size: 1.15rem;
   color: #163a47;
-  letter-spacing: -0.5px;
+  font-weight: 400;
 }
-.phone-second {
-  font-size: 1.5rem;
+.phone-note {
+  font-size: 0.82rem;
+  color: #6d8e96;
+  margin-left: 3.2rem;
   margin-top: 0.5rem;
-  color: #2c5a68;
 }
-.phone-second strong {
-  font-weight: 400;
-}
-.mail-contact {
-  font-size: 1.1rem;
-  color: #163a47;
-  margin-top: 1.5rem;
-  word-break: break-all;
+.email-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   background: #fcf9f2;
-  padding: 0.8rem 1.2rem;
+  border: 1px solid #e8d9b9;
   border-radius: 60px;
-  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  color: #163a47;
+  text-decoration: none;
+  word-break: break-all;
+  transition: 0.2s;
+}
+.email-pill:hover {
+  background: #f5d788;
+}
+.social-row {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 0.6rem;
+}
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #b1975a;
+  border-radius: 40px;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  color: #163a47;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.social-pill:hover {
+  background: #b1975a;
+  color: #fff;
+}
+.location-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.location-text {
+  font-size: 0.95rem;
+  color: #4d6a73;
+  line-height: 1.6;
+}
+.location-remote {
+  color: #b1975a;
+  font-size: 0.85rem;
+}
+.wa-block {
+  background: #163a47;
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.wa-text h4 {
+  color: #f5d788;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+.wa-text p {
+  color: #8db5be;
+  font-size: 0.88rem;
+}
+.btn-wa-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.85rem 1.8rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+.btn-wa-cta:hover {
+  background: #1eba58;
 }
 
 /* FOOTER */
@@ -483,6 +602,13 @@ h2::after {
 }
 
 /* responsive */
+@media (max-width: 1100px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+  }
+}
+
 @media (max-width: 800px) {
   .header-grid {
     grid-template-columns: 1fr 1fr;
@@ -499,8 +625,16 @@ h2::after {
   .hero-grid {
     grid-template-columns: 1fr;
   }
+  .flow-steps {
+    grid-template-columns: 1fr 1fr;
+  }
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+  .contact-block--location {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
   }
   .footer-main {
     flex-direction: column;
@@ -508,7 +642,25 @@ h2::after {
     text-align: center;
   }
 }
+
+@media (max-width: 640px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .contact-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .contact-block--location { 
+    flex-direction: column; 
+    gap: 0.5rem; 
+  }
+}
+
 @media (max-width: 480px) {
   h2 { font-size: 2rem; }
   .hero h1 { font-size: 2.5rem; }
+  .flow-steps {
+    grid-template-columns: 1fr;
+  }
 }
